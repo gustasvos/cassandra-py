@@ -21,7 +21,6 @@ def create_table_usuario():
     """)
 
 def insert_usuario():
-    create_table_usuario()
     print('Insira os dados do usuário:\n')
 
     nome = input("Nome: ")
@@ -53,8 +52,6 @@ def insert_usuario():
     )
 
 def read_table_usuario():
-    create_table_usuario()
-
     rows = list(session.execute("SELECT * FROM usuario"))
 
     for i, row in enumerate(rows):
@@ -64,8 +61,6 @@ def read_table_usuario():
     return rows
 
 def update_usuario():
-    create_table_usuario()
-
     rows = read_table_usuario()
     if not rows:
         print('Nenhum usuário encontrado')
@@ -116,8 +111,6 @@ def update_usuario():
     print(f"Usuário {usuario_id} atualizado com sucesso.")
 
 def delete_usuario():
-    create_table_usuario()
-
     rows = read_table_usuario()
     if not rows:
         print('Nenhum usuário encontrado')

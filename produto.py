@@ -13,7 +13,6 @@ def create_table_produto():
     """)
 
 def insert_produto():
-    create_table_produto()
     print('Insira os dados do produto:\n')
     nome = input("Nome: ")
     descricao = input("Descrição: ")
@@ -25,7 +24,6 @@ def insert_produto():
     session.execute("INSERT INTO produto (id, nome, descricao, preco) VALUES (uuid(), %s, %s, %s)", (nome, descricao, preco))
 
 def read_table_produto():
-    create_table_produto()
     rows = list(session.execute("SELECT * FROM produto"))
     for i, row in enumerate(rows):
         print(f'{i} - {row}')
@@ -33,7 +31,6 @@ def read_table_produto():
     return rows
 
 def update_produto():
-    create_table_produto()
     rows = read_table_produto()
     if not rows:
         print('Nenhum produto encontrado')
@@ -57,7 +54,6 @@ def update_produto():
 
 
 def delete_produto():
-    create_table_produto()
     rows = read_table_produto()
     if not rows:
         print('Nenhum produto encontrado')

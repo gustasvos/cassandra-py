@@ -20,7 +20,6 @@ def create_table_vendedor():
     """)
 
 def insert_vendedor():
-    create_table_vendedor()
     print('Insira os dados do vendedor:\n')
 
     nome = input("Nome: ")
@@ -47,7 +46,6 @@ def insert_vendedor():
     )
 
 def read_table_vendedor():
-    create_table_vendedor()
     rows = list(session.execute("SELECT * FROM vendedor"))
 
     for i, row in enumerate(rows):
@@ -57,8 +55,6 @@ def read_table_vendedor():
     return rows
 
 def update_vendedor():
-    create_table_vendedor()
-
     rows = read_table_vendedor()
     if not rows:
         print('Nenhum vendedor encontrado')
@@ -106,8 +102,6 @@ def update_vendedor():
     print(f"Vendedor {vendedor_id} atualizado com sucesso.")
 
 def delete_vendedor():
-    create_table_vendedor()
-
     rows = read_table_vendedor()
     if not rows:
         print('Nenhum vendedor encontrado')
